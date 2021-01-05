@@ -1,4 +1,4 @@
-# Camnuda, AMQP, and Spring Boot microservices approach
+# Camunda, AMQP, and Spring Boot microservices approach
 This is a quick PoC demonstrating how to implement a microservices architecture in which business logic is driven by a BPM engine. (Micro)services are created in a Spring Boot app (bundled together for convenience) and communicate with AMQP. 
 
 RabbitMQ has been used as the AMQP broker and Camunda BPM as the workflow engine. 
