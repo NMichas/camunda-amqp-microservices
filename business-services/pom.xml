@@ -11,7 +11,7 @@
   <properties>
     <maven.compiler.source>13</maven.compiler.source>
     <maven.compiler.target>13</maven.compiler.target>
-    <spring-boot.version>2.3.4.RELEASE</spring-boot.version>
+    <spring-boot.version>2.4.1</spring-boot.version>
   </properties>
 
   <dependencyManagement>
@@ -40,10 +40,6 @@
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-amqp</artifactId>
     </dependency>
-<!--    <dependency>-->
-<!--      <groupId>com.fasterxml.jackson.core</groupId>-->
-<!--      <artifactId>jackson-databind</artifactId>-->
-<!--    </dependency>-->
     <dependency>
       <groupId>org.example</groupId>
       <artifactId>common</artifactId>
@@ -60,4 +56,13 @@
     </dependency>
   </dependencies>
 
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+        <version>${spring-boot.version}</version>
+      </plugin>
+    </plugins>
+  </build>
 </project>

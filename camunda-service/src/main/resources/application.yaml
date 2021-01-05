@@ -8,5 +8,5 @@ camunda:
 
 spring:
   rabbitmq:
-    host: docker-dev-1.home.nassosmichas.com
+    host: localhost
     port: 5672

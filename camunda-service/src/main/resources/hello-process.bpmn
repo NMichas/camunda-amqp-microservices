@@ -46,8 +46,8 @@
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="HelloWorkflow">
       <bpmndi:BPMNEdge id="Flow_1uyvbal_di" bpmnElement="Flow_1uyvbal">
         <di:waypoint x="640" y="197" />
-        <di:waypoint x="640" y="120" />
-        <di:waypoint x="780" y="120" />
+        <di:waypoint x="640" y="160" />
+        <di:waypoint x="750" y="160" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_0k35v08_di" bpmnElement="Flow_0k35v08">
         <di:waypoint x="450" y="277" />
@@ -59,9 +59,9 @@
         <di:waypoint x="400" y="237" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_0zjby00_di" bpmnElement="Flow_0zjby00">
-        <di:waypoint x="880" y="120" />
-        <di:waypoint x="950" y="120" />
-        <di:waypoint x="950" y="219" />
+        <di:waypoint x="850" y="160" />
+        <di:waypoint x="930" y="160" />
+        <di:waypoint x="930" y="219" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_0hxxbo5_di" bpmnElement="Flow_0hxxbo5">
         <di:waypoint x="595" y="380" />
@@ -83,14 +83,14 @@
       <bpmndi:BPMNShape id="Activity_19p5hwn_di" bpmnElement="Activity_136q4tt">
         <dc:Bounds x="400" y="197" width="100" height="80" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Event_09bz4bo_di" bpmnElement="Event_09bz4bo">
-        <dc:Bounds x="932" y="219" width="36" height="36" />
-        <bpmndi:BPMNLabel>
-          <dc:Bounds x="917" y="265" width="65" height="27" />
-        </bpmndi:BPMNLabel>
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_1j4yrin_di" bpmnElement="Activity_0wy3eu3">
-        <dc:Bounds x="780" y="80" width="100" height="80" />
+        <dc:Bounds x="750" y="120" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_09bz4bo_di" bpmnElement="Event_09bz4bo">
+        <dc:Bounds x="912" y="219" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="897" y="265" width="65" height="27" />
+        </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
