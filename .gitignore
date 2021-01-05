@@ -1,0 +1,5 @@
+# Project exclude paths
+/business-services/target/
+/camunda-service/target/
+/common/target/
+/rest-service/target/

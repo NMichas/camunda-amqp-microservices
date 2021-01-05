@@ -1,0 +1,4 @@
+spring:
+  rabbitmq:
+    host: docker-dev-1.home.nassosmichas.com
+    port: 5672

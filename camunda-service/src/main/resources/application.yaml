@@ -1,0 +1,12 @@
+camunda:
+  bpm:
+    admin-user:
+      id: admin
+      password: admin
+      first-name: PoC
+      last-name: user
+
+spring:
+  rabbitmq:
+    host: docker-dev-1.home.nassosmichas.com
+    port: 5672

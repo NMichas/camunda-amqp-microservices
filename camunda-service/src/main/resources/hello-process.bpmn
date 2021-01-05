@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_1sfuuyg" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.4.0">
+  <bpmn:process id="HelloWorkflow" isExecutable="true" camunda:versionTag="1.0.0">
+    <bpmn:startEvent id="StartEvent_1" name="Hello request received">
+      <bpmn:outgoing>Flow_1hdn4hq</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:endEvent id="Event_09bz4bo" name="Hello request processed">
+      <bpmn:incoming>Flow_0zjby00</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_1hdn4hq" sourceRef="StartEvent_1" targetRef="Activity_136q4tt" />
+    <bpmn:sequenceFlow id="Flow_0k35v08" sourceRef="Activity_136q4tt" targetRef="Activity_0k75lnm" />
+    <bpmn:sequenceFlow id="Flow_1uyvbal" sourceRef="Activity_0k68mgh" targetRef="Activity_0wy3eu3" />
+    <bpmn:serviceTask id="Activity_0k68mgh" name="Hello&#10;service" camunda:delegateExpression="#{AMQPPublishDelegate}">
+      <bpmn:extensionElements>
+        <camunda:inputOutput>
+          <camunda:inputParameter name="routingKey">hello</camunda:inputParameter>
+        </camunda:inputOutput>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_0hxxbo5</bpmn:incoming>
+      <bpmn:outgoing>Flow_1uyvbal</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:receiveTask id="Activity_0wy3eu3" name="hello_done" messageRef="Message_0mzkrh5">
+      <bpmn:incoming>Flow_1uyvbal</bpmn:incoming>
+      <bpmn:outgoing>Flow_0zjby00</bpmn:outgoing>
+    </bpmn:receiveTask>
+    <bpmn:receiveTask id="Activity_0k75lnm" name="capitalise_done" messageRef="Message_145gk8c">
+      <bpmn:incoming>Flow_0k35v08</bpmn:incoming>
+      <bpmn:outgoing>Flow_0hxxbo5</bpmn:outgoing>
+    </bpmn:receiveTask>
+    <bpmn:serviceTask id="Activity_136q4tt" name="Capitalise service" camunda:delegateExpression="#{AMQPPublishDelegate}">
+      <bpmn:extensionElements>
+        <camunda:inputOutput>
+          <camunda:inputParameter name="routingKey">capitalise</camunda:inputParameter>
+        </camunda:inputOutput>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_1hdn4hq</bpmn:incoming>
+      <bpmn:outgoing>Flow_0k35v08</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="Flow_0zjby00" sourceRef="Activity_0wy3eu3" targetRef="Event_09bz4bo" />
+    <bpmn:sequenceFlow id="Flow_0hxxbo5" sourceRef="Activity_0k75lnm" targetRef="Activity_0k68mgh" />
+  </bpmn:process>
+  <bpmn:message id="Message_145gk8c" name="service_done" />
+  <bpmn:message id="Message_0mzkrh5" name="service_done" />
+  <bpmn:message id="Message_1pl55kp" name="service_done" />
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="HelloWorkflow">
+      <bpmndi:BPMNEdge id="Flow_1uyvbal_di" bpmnElement="Flow_1uyvbal">
+        <di:waypoint x="640" y="197" />
+        <di:waypoint x="640" y="120" />
+        <di:waypoint x="780" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0k35v08_di" bpmnElement="Flow_0k35v08">
+        <di:waypoint x="450" y="277" />
+        <di:waypoint x="450" y="380" />
+        <di:waypoint x="495" y="380" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1hdn4hq_di" bpmnElement="Flow_1hdn4hq">
+        <di:waypoint x="248" y="237" />
+        <di:waypoint x="400" y="237" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0zjby00_di" bpmnElement="Flow_0zjby00">
+        <di:waypoint x="880" y="120" />
+        <di:waypoint x="950" y="120" />
+        <di:waypoint x="950" y="219" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0hxxbo5_di" bpmnElement="Flow_0hxxbo5">
+        <di:waypoint x="595" y="380" />
+        <di:waypoint x="640" y="380" />
+        <di:waypoint x="640" y="277" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="212" y="219" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="198" y="262" width="65" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0ktqojq_di" bpmnElement="Activity_0k68mgh">
+        <dc:Bounds x="590" y="197" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_12hw1k4_di" bpmnElement="Activity_0k75lnm">
+        <dc:Bounds x="495" y="340" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_19p5hwn_di" bpmnElement="Activity_136q4tt">
+        <dc:Bounds x="400" y="197" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_09bz4bo_di" bpmnElement="Event_09bz4bo">
+        <dc:Bounds x="932" y="219" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="917" y="265" width="65" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1j4yrin_di" bpmnElement="Activity_0wy3eu3">
+        <dc:Bounds x="780" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
